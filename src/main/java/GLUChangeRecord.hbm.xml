@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+	<hibernate-mapping>
+	   <class name="com.wizecommerce.cts.utils.GLUChangeRecord" table="glu_change_record">
+	      <meta attribute="class-description">
+	         This class contains the change records, this is master table. 
+	      </meta>
+	      <id name="crId" type="int" column="glu_id">
+	         <generator class="native"/>
+	      </id>
+		  <property name="crId" column="cr_id" type="int"/>
+	  
+	      <property name="subSourceName" column="sub_source_name" type="string"/>
+		  <property name="details" column="details" type="string"/>
+	      <property name="datetime" column="datetime" type="timestamp"/>
+	      <property name="sourceId" column="source_id" type="int"/>
+	      <property name="subSourceId" column="sub_source_id" type="int"/>
+	      <property name="status" column="status" type="string"/>
+	      <property name="sourceDatetime" column="source_datetime" type="date"/>
+	   </class>
+	</hibernate-mapping>

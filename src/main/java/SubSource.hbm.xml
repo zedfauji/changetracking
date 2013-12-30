@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+	<hibernate-mapping>
+	   <class name="com.wizecommerce.cts.utils.SubSource" table="sub_sources">
+	      <meta attribute="class-description">
+	         This class contains the objects mapping for source table, this is master table. 
+	      </meta>
+	      <id name="subSourceId" type="int" column="sub_source_id">
+	         <generator class="native"/>
+	      </id>
+		  <property name="sourceId" column="source_id" type="int"/>
+	      <property name="subSourceName" column="sub_source_name" type="string"/>
+	      <property name="isActive" column="is_active" type="int"/>
+		  <property name="createdDate" column="created_date" type="date"/>
+	      <property name="lastModifiedDatetime" column="last_modified_datetime" type="date"/>
+	      <property name="credentialDetails" column="credential_details" type="string"/>
+		  <property name="adminDate" column="admin_date" type="timestamp"/>  
+	   </class>
+	</hibernate-mapping>

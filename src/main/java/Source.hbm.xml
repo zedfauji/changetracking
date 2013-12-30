@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+	<hibernate-mapping>
+	   <class name="com.wizecommerce.cts.utils.Source" table="source">
+	      <meta attribute="class-description">
+	         This class contains the source, this is table contains data of all the sources. 
+	      </meta>
+	      <id name="sourceId" type="int" column="source_id">
+	         <generator class="native"/>
+	      </id>
+	      <property name="sourceName" column="source_name" type="string"/>
+	      <property name="isActive" column="is_active" type="int"/>
+	      <property name="createdDate" column="created_date" type="date"/>
+	      <property name="lastModifiedDatetime" column="last_modified_datetime" type="date"/>
+	   </class>
+	</hibernate-mapping>

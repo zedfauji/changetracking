@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+	<hibernate-configuration>
+	   <session-factory>
+	   <property name="hibernate.dialect">
+	      org.hibernate.dialect.MySQLDialect
+	   </property>
+	   <property name="hibernate.connection.driver_class">
+	      com.mysql.jdbc.Driver
+	   </property>
+	
+	   <!-- Assume test is the database name -->
+	   <property name="hibernate.connection.url">
+	      jdbc:mysql://dev-solr1.indcorp.nextag.com/cts
+	   </property>
+	   <property name="hibernate.connection.username">
+	      cts
+	   </property>
+	   <property name="hibernate.connection.password">
+	      dba
+	   </property>
+	   <!-- List of XML mapping files -->
+	   <mapping resource="Source.hbm.xml"/>
+	   <mapping resource="SubSource.hbm.xml"/>
+	   <mapping resource="ChangeRecord.hbm.xml"/>
+	   <mapping resource="GLUChangeRecord.hbm.xml"/>
+	
+	</session-factory>
+	</hibernate-configuration>
