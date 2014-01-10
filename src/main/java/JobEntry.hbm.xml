@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+	<hibernate-mapping>
+	   <class name="com.wizecommerce.cts.utils.JobEntry" table="job_entry">
+	      <meta attribute="class-description">
+	         This class contains the source, this is table contains data of all the sources. 
+	      </meta>
+	      <id name="jobId" type="int" column="job_id">
+	         <generator class="native"/>
+	      </id>
+	      <property name="jobName" column="job_name" type="string"/>
+	      <property name="classFactory" column="class_factory" type="string"/>
+	      <property name="jobParams" column="params" type="string"/>
+	      <property name="jobInterval" column="job_interval" type="int"/>
+	      <property name="status" column="status" type="string"/>
+	      <property name="lastRunDate" column="last_run_date" type="date"/>
+	      <property name="isRepeat" column="is_repeat" type="int"/>
+	   </class>
+	</hibernate-mapping>
+

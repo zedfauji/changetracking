@@ -26,8 +26,7 @@ public class Writer {
 			RabbitMQ rabbitMq = new RabbitMQ();
 			rabbitMq.connectRabbitMQ();
 			rabbitMq.setConsume();
-		    
-		    while (true) {
+x		    while (true) {
 		    	
 		        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder builder = factory.newDocumentBuilder();
