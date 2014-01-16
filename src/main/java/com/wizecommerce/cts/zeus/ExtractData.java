@@ -3,13 +3,16 @@ package com.wizecommerce.cts.zeus;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.logging.Logger;
 
 import com.wizecommerce.cts.utils.Hibernate;
+import com.wizecommerce.cts.utils.RabbitMQ;
 import com.wizecommerce.cts.utils.Source;
 import com.wizecommerce.cts.utils.SubSource;
 
-public class ExtractData implements Runnable {
+public class ExtractData {
 	
+	Logger logger = Logger.getLogger("ExtractData");
 	public Source source;
 	public SubSource subSource;
 	
@@ -19,16 +22,12 @@ public class ExtractData implements Runnable {
 	 * @author panand
 	 */
 	public ExtractData(Source source) {
-		this.source = source;
-		new Thread(this, source.getSourceName()).start();;
-	}
-	
-	public void run() {
+		
 		try{
-
+			this.source = source;
 			Hibernate hib = new Hibernate();
 			String query = "FROM SubSource WHERE source_id = '" + source.getSourceId() + "'" ;
-			Iterator<?> subSourceIterator = hib.executeSelectQuery(query);
+			Iterator<?> subSourceIterator = hib.executeSelectQuery(query, false);
 			
 			while(subSourceIterator.hasNext()) {
 				subSource = (SubSource) subSourceIterator.next();
@@ -65,10 +64,21 @@ public class ExtractData implements Runnable {
 				 * @author panand
 				*/
 				if(changeString.length() > 0) {
-					QHandler ctsQ = new QHandler();
-					ctsQ.enQueue(changeString);
-					ctsQ.finalize();
-					//dbHandle.touchAdminDate(subSourceInfo.getSubSourceId());
+					/*
+						logger.info(changeString);
+						QHandler ctsQ = new QHandler();
+						ctsQ.enQueue(changeString);
+						ctsQ.finalize();
+					*/
+					
+					//Properties properties = new Properties();
+		        	//HashMap<String, String> propertiesHash = properties.getProperties();
+		        	
+					RabbitMQ rabbitMq = new RabbitMQ();
+					rabbitMq.connectRabbitMQ("cts_scrubber");
+					logger.info("## Change XML ## " + changeString);
+					rabbitMq.publishPacket(changeString);
+					rabbitMq.terminateSession();
 				}
 			}
 			hib.terminateSession();

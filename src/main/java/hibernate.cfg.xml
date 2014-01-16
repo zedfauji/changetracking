@@ -4,28 +4,30 @@
 
 	<hibernate-configuration>
 	   <session-factory>
-	   <property name="hibernate.dialect">
-	      org.hibernate.dialect.MySQLDialect
-	   </property>
-	   <property name="hibernate.connection.driver_class">
-	      com.mysql.jdbc.Driver
-	   </property>
+	   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+	   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 	
-	   <!-- Assume test is the database name -->
-	   <property name="hibernate.connection.url">
-	      jdbc:mysql://dev-solr1.indcorp.nextag.com/cts
-	   </property>
-	   <property name="hibernate.connection.username">
-	      cts
-	   </property>
-	   <property name="hibernate.connection.password">
-	      dba
-	   </property>
+	   
+	   <property name="hibernate.connection.url">jdbc:mysql://dev-solr1.indcorp.nextag.com/cts</property>
+	   <property name="hibernate.connection.username">cts</property>
+	   <property name="hibernate.connection.password">dba</property>
+		
+		<!-- c3p0 config -->
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.initialPoolSize">1</property>
+		<property name="hibernate.c3p0.max_size">4</property>
+		<property name="hibernate.c3p0.timeout">50</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.idle_test_period">1000</property>
+		
 	   <!-- List of XML mapping files -->
 	   <mapping resource="Source.hbm.xml"/>
 	   <mapping resource="SubSource.hbm.xml"/>
 	   <mapping resource="ChangeRecord.hbm.xml"/>
 	   <mapping resource="GLUChangeRecord.hbm.xml"/>
+	   <mapping resource="UserSettings.hbm.xml"/>
+	   <mapping resource="JobLog.hbm.xml"/>
+	   <mapping resource="JobEntry.hbm.xml"/>
 	
 	</session-factory>
 	</hibernate-configuration>

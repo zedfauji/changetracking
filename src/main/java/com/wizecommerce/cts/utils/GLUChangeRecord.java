@@ -20,7 +20,6 @@ public class GLUChangeRecord {
 	public GLUChangeRecord(){}
 	
 	public void customChangeRecord(Element customNode) {
-		System.out.println("----------IN GLUChangeRecord class------------");
 	}
 
 	public int getGluId() {

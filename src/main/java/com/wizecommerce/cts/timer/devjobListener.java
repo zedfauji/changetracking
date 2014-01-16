@@ -40,7 +40,7 @@ public class devjobListener implements JobListener {
 
         jobLog.setJobId(jobEntry.getJobId());
         jobLog.setCurrentStatus("Started");
-        jobLog.setStartDate(0);
+        //jobLog.setStartDate(0);
         jobLog.setLastRunDate(0);
         jobLog.setLastStatus("OK");
 

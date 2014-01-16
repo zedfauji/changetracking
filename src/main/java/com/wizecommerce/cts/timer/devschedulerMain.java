@@ -35,7 +35,7 @@ public class devschedulerMain {
         Scheduler scheduler = new StdSchedulerFactory().getScheduler();
 
         Hibernate hibernate = new Hibernate();
-        Iterator<?> schedulerInfo = hibernate.executeSelectQuery("FROM JobEntry");
+        Iterator<?> schedulerInfo = hibernate.executeSelectQuery("FROM JobEntry" , false);
         while (schedulerInfo.hasNext())
         {
             JobEntry entry = (JobEntry) schedulerInfo.next();

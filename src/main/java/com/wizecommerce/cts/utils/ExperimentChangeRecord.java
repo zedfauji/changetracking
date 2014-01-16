@@ -6,6 +6,6 @@ public class ExperimentChangeRecord {
 	public ExperimentChangeRecord(){}
 	
 	public void customChangeRecord(Element customNode) {
-		System.out.println("----------IN ExperimentChangeRecord class------------");
+		//System.out.println("----------IN ExperimentChangeRecord class------------");
 	}
 }

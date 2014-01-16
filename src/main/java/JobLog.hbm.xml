@@ -13,7 +13,7 @@
 	      </id>
 	      <property name="jobId" column="job_id" type="int"/>
 	      <property name="lastRunDate" column="last_run_date" type="int"/>
-	      <property name="startDate" column="start_date" type="int"/>
+	      <property name="startDate" column="start_date" type="timestamp"/>
 	      <property name="lastStatus" column="last_status" type="string"/>
 	      <property name="currentStatus" column="current_status" type="string"/>
 	   </class>

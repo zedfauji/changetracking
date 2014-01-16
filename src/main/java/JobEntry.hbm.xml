@@ -18,6 +18,6 @@
 	      <property name="status" column="status" type="string"/>
 	      <property name="lastRunDate" column="last_run_date" type="date"/>
 	      <property name="isRepeat" column="is_repeat" type="int"/>
+	      <property name="startDate" column="start_date" type="int"/>
 	   </class>
 	</hibernate-mapping>
-

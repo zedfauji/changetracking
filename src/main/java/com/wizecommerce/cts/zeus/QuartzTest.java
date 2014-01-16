@@ -19,7 +19,7 @@ public class QuartzTest
                 .build();
          
         Trigger trigger = TriggerBuilder
-                .newTrigger()
+               .newTrigger()
                 .withIdentity("SimpleJob")
                 .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(300).repeatForever())
                 .build();

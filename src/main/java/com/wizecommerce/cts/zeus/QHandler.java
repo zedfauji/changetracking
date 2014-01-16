@@ -1,36 +1,43 @@
 package com.wizecommerce.cts.zeus;
 
-import java.util.HashMap;
+//import java.util.HashMap;
+import java.util.logging.Logger;
 
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.ShutdownSignalException;
 
 public class QHandler {
 
 	/*
 	 *  By default queue name would be cts_scrubber.
-	 *  Un less specified in cts.properties
+	 *  Unless specified in cts.properties
 	 */
-	private String QUEUE_NAME = "cts_scrubber";
-	private Channel channel;
-	private Connection connection;
+	public String QUEUE_NAME = "cts_scrubber";
+	public Channel channel;
+	public Connection connection;
 	
 	public QHandler() {
 		
-		Properties properties = new Properties();
-		HashMap<String, String> propertiesHash = new HashMap<String, String>();
-		propertiesHash = properties.getProperties();
+		//Properties properties = new Properties();
+		//HashMap<String, String> propertiesHash = new HashMap<String, String>();
+		//propertiesHash = properties.getProperties();
 		
-		this.QUEUE_NAME = propertiesHash.get("cts.rabbitmq.queue");
+		//this.QUEUE_NAME = propertiesHash.get("cts.rabbitmq.job.queue");
+		Logger logger = Logger.getLogger("rabbitMQ");
+		this.QUEUE_NAME = "cts_job";
 		try {
 			ConnectionFactory factory = new ConnectionFactory();
-		    factory.setHost(propertiesHash.get("cts.rabbitmq.host"));
+		    factory.setHost("localhost");
 		    
 		    connection = factory.newConnection();
 		    channel = connection.createChannel();
 		    
-		    channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+		    channel.queueDeclare(QUEUE_NAME, true, false, false, null);
+		}
+		catch(ShutdownSignalException rExc){
+			logger.info(rExc.getReason().toString());
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -39,6 +46,18 @@ public class QHandler {
 	}
 	
 	protected void finalize() {
+		try {
+			if(channel.isOpen())
+				channel.close();
+	    	if(connection.isOpen())
+	    		connection.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void terminateSession(){
 		try {
 			if(channel.isOpen())
 				channel.close();

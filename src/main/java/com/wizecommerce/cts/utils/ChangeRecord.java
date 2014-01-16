@@ -38,7 +38,7 @@ public class ChangeRecord {
 		this.subSourceId	= Integer.parseInt(commonNode.getAttribute("sub_source_id"));
 		this.status			= commonNode.getAttribute("status");
 		
-		System.out.println("Date --------- " + commonNode.getAttribute("source_datetime"));
+		//System.out.println("Date --------- " + commonNode.getAttribute("source_datetime"));
 		this.sourceDatetime	= Integer.parseInt(commonNode.getAttribute("source_datetime"));
 	}
 	

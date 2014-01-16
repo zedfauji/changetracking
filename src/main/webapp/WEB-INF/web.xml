@@ -19,4 +19,54 @@
     <servlet-name>TestServelet</servlet-name>
     <url-pattern>/TestServelet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>This file will handle settings related to a user</description>
+    <display-name>UserSettings</display-name>
+    <servlet-name>UserSettings</servlet-name>
+    <servlet-class>com.wizecommerce.cts.agenor.UserSettings</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserSettings</servlet-name>
+    <url-pattern>/UserSettings</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Handles all settings related to user</description>
+    <display-name>UserSetting</display-name>
+    <servlet-name>UserSetting</servlet-name>
+    <servlet-class>com.wizecommerce.cts.agenor.UserSettings</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserSetting</servlet-name>
+    <url-pattern>/UserSetting</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Settings</display-name>
+    <servlet-name>Settings</servlet-name>
+    <servlet-class>com.wizecommerce.cts.agenor.Settings</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Settings</servlet-name>
+    <url-pattern>/Settings</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet to create a new job</description>
+    <display-name>CreateJob</display-name>
+    <servlet-name>CreateJob</servlet-name>
+    <servlet-class>com.wizecommerce.cts.agenor.CreateJob</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateJob</servlet-name>
+    <url-pattern>/CreateJob</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Job</display-name>
+    <servlet-name>Job</servlet-name>
+    <servlet-class>com.wizecommerce.cts.agenor.Job</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Job</servlet-name>
+    <url-pattern>/Job</url-pattern>
+  </servlet-mapping>
 </web-app>
